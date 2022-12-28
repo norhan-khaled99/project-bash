@@ -2,7 +2,7 @@
 
 function tablesMenu {
   echo "///////////////////////////////"
-  echo "1. Create New Table"
+  echo "1. Create Table"
   echo "2. List all Tables"
   echo "3. Drop Table"
   echo "4. Insert Into Table"
@@ -11,7 +11,7 @@ function tablesMenu {
   echo "7. Update Table"
   echo "0. Exit "
   echo "///////////////////////////////"
-  echo -e "Enter Choice: \c"
+  echo -e "Enter Choice:"
   read ch
   case $ch in
     1)  bash ../../createTable.sh  ;;
