@@ -4,7 +4,7 @@
   echo "2. delete specific Data from Table"
   echo "3. back to Table Menu"
   echo "4. Exit "
-  echo $PWD
+  
   read -p "Enter Choice:" ch
 
   case $ch in
