@@ -1,4 +1,6 @@
 #!/bin/bash
+export LC_COLLATE=C
+shopt -s extglob
 function insert {
   read -p "Table Name: " tableName
   if ! [[ -f $tableName ]]; then
