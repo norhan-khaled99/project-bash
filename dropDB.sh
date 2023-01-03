@@ -1,8 +1,10 @@
 #!/bin/bash
+
+export LC_COLLATE=C
+shopt -s extglob
+
 function dropDB {
-  echo -e "Enter Database Name: \c"
-  read name
-   
+  read -p "Enter Database Name: " name
   if [ -d ./DBMS/$name ]
   then
     rm -r -i ./DBMS/$name
