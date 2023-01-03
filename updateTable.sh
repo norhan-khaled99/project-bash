@@ -7,14 +7,13 @@ shopt -s extglob
 	then
 	echo "the Table $tName doesn't exist"
 	bash ../../tableMenu.sh 
-	break;;
+	return
   fi
   
-  read -p "Enter Column name:" field
-  if [[ $field == "" ]]
-  then
+  read -p "please enter right column number:" field
+  if [[ $field == "" ]];then
     echo "Not Found"
-    
+ 
       bash ../../tableMenu.sh
   else
     read -p "Enter Value: " val
@@ -29,8 +28,11 @@ shopt -s extglob
         echo "Value Not Found"
         bash ../../tableMenu.sh
         else
-         sed -i 's/'$val'/'$newValue'/g' $tName 2>>./.error.log
-        echo "Row Updated Successfully"
+         NR=$(awk 'BEGIN{FS="|"}{if ($'$field' == "'$val'") print NR}' $tName )
+        oldValue=$(awk 'BEGIN{FS="|"}{if(NR=='$NR'){for(i=1;i<=NF;i++){if(i=='$field') print $i}}}' $tName )
+        echo $oldValue
+        sed -i ''$NR's/'$oldValue'/'$newValue'/g' $tName 2>>./.error.log
+        echo "value updated successefully"
           bash ../../tableMenu.sh
       fi
     fi
