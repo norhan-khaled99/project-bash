@@ -1,13 +1,18 @@
-function selectCol {
-  read -p "Enter Table Name: " tName
-  if [[ -f $tName ]]
-  then
-	 read -p "Enter Column Number:"  colNum
-	  awk 'BEGIN{FS="|"} {if (NF >= '$colNum' && '$colNum' >0 ) print $'$colNum'; }END { if(NF < '$colNum' || '$colNum' <= 0 )" }' $tName
-  else 
-    echo "Table $tName doesn't exist"
-  fi
-  bash ../../selectmenu.sh
-}
+#!/bin/bash
+export LC_COLLATE=C
 
-selectCol
+echo -e "Enter Table Name: "
+ read tName
+  if ! [[ -f $tName ]]; then
+    echo "Table $tableName doesn't exist "
+    bash ../../tableMenu.sh
+    else
+  echo -e "Enter Column Number:"
+  read colNum
+   if [[ $colNum == "" ]]; then
+   echo -e "number not found"
+   bash ../../tableMenu.sh
+  else
+  awk 'BEGIN{FS="|"}{print $'$colNum'}' $tName
+  fi
+  fi
