@@ -1,4 +1,7 @@
 #!/bin/bash
+export LC_COLLATE=C
+shopt -s extglob
+
   echo -e "\e[1;36m  "
   echo "1. Create DataBase"
   echo "2. List the DataBases "
