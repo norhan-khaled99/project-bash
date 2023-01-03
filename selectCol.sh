@@ -7,12 +7,14 @@ echo -e "Enter Table Name: "
     echo "Table $tableName doesn't exist "
     bash ../../tableMenu.sh
     else
-  echo -e "Enter Column Number:"
+  echo -e "Enter Column Number: \c"
   read colNum
    if [[ $colNum == "" ]]; then
-   echo -e "number not found"
-   bash ../../tableMenu.sh
-  else
+   
+       echo "column $colNum not found: \c"
+       
+        bash ../../tableMenu.sh
+        else
   awk 'BEGIN{FS="|"}{print $'$colNum'}' $tName
   fi
   fi
