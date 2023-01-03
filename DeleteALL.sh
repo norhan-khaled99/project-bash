@@ -7,7 +7,7 @@ read -p "Enter the  Table Name You want to delete:" table_Name
   then
 
    sed -i '2,$d' ./$table_Name
-   echo "row deleted successfully" 
+   echo "Data deleted successfully" 
   else 
     echo "Table $table_Name doesn't exist"
   fi
