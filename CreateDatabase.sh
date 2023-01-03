@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export LC_COLLATE=C
+shopt -s extglob
 
 if ! [ -d DBMS ] 
 then
@@ -7,7 +9,7 @@ then
 	 mkdir DBMS
 fi
 clear
-echo "Welcome To DBMS"
+echo "Welcome To the DBMS"
 
  function mainMenu {
   echo "1. Create DataBase"
