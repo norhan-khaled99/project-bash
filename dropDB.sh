@@ -3,16 +3,14 @@
 export LC_COLLATE=C
 shopt -s extglob
 
-function dropDB {
-  read -p "Enter Database Name: " name
+read -p "Enter Database Name:" name
+   
   if [ -d ./DBMS/$name ]
   then
     rm -r -i ./DBMS/$name
-    echo "Database Dropped Successfully"
+    echo "Database $name Dropped Successfully"
   else
     echo "Database Not found"
   fi
-  
-}
-dropDB
+ 
 bash mainmenu.sh
