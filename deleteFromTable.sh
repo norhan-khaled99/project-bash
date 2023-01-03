@@ -10,9 +10,14 @@ export LC_COLLATE=C
 	bash ../../tableMenu.sh 
   fi
 
-    read -p "Enter value: " value
-row=$(grep -n "$value" $tName | cut -d: -f1)
-sed -i "${row}d" $tName
-     bash ../../tableMenu.sh
-    fi
-  fi
+read -p "Enter the value to check: " value
+
+
+if grep -q "$value" $tName; then
+    
+    sed -i "/$value/d" $tName
+    echo "Value deleted successfully!"
+else
+    echo "Value not found!"
+fi 
+bash ../../tableMenu.sh 
