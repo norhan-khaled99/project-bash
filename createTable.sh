@@ -1,10 +1,11 @@
 #!/bin/bash
+export LC_COLLATE=C
+shopt -s extglob
 
  #read -p"Enter Database Name: " name
   #if [ -d ./DBMS/$name ]
   #then
    #cd ./DBMS/$name 
- 
  read -p "please Enter the Name of Table that you want to create " tableName
   if ! [[ $tableName =~ ^[a-zA-Z]*$ ]]; then
         echo -e "Invalid Table name !!"
